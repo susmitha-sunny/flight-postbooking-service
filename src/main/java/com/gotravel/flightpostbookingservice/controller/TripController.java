@@ -14,17 +14,17 @@ public class TripController {
     @Autowired
     private TripService tripService;
 
-    @GetMapping(value = "/flight-postbooking-service/triphistory/{emailId}")
+    @GetMapping(value = "/triphistory/{emailId}")
     public List<ReservationDetails> execute(@PathVariable final String emailId) throws ValueNotFoundException{
         return tripService.getTripHistory(emailId);
     }
 
-    @GetMapping(value = "/flight-postbooking-service/retrievepnr/{pnr}")
+    @GetMapping(value = "/retrievepnr/{pnr}")
     public ReservationDetails executeRetrievePnr(@PathVariable final String pnr) throws ValueNotFoundException {
         return tripService.retrievePnr(pnr);
     }
 
-    @PutMapping(value = "/flight-postbooking-service/cancelreservation/{pnr}")
+    @PutMapping(value = "/cancelreservation/{pnr}")
     public String executeCancelReservation(@PathVariable final String pnr) throws ValueNotFoundException {
         return tripService.cancelReservation(pnr);
     }
